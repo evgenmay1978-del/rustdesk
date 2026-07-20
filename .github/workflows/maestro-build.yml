@@ -28,7 +28,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
-          ref: "1.4.9"
+          ref: "maestro-1.4.9"
           submodules: recursive
 
       - name: Install prerequisites
@@ -125,7 +125,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
-          ref: "1.4.9"
+          ref: "maestro-1.4.9"
           submodules: recursive
 
       - name: Bake Maestro config + branding + TV launcher
@@ -146,7 +146,7 @@ jobs:
           # 3) Android TV: make it visible on the TV home launcher + installable on TV
           sed -i 's|    <application|    <uses-feature android:name="android.software.leanback" android:required="false" />\n    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />\n\n    <application|' "$M"
           sed -i 's|<category android:name="android.intent.category.LAUNCHER" />|<category android:name="android.intent.category.LAUNCHER" />\n                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />|' "$M"
-          sed -i 's|android:icon="@mipmap/ic_launcher"|android:icon="@mipmap/ic_launcher"\n        android:banner="@mipmap/ic_launcher"|' "$M"
+          sed -i 's|android:icon="@mipmap/ic_launcher"|android:icon="@mipmap/ic_launcher"\n        android:banner="@drawable/maestro_banner"|' "$M"
 
           echo "===== config.rs ====="; grep -n 'RENDEZVOUS_SERVERS\|RS_PUB_KEY' "$CFG"
           echo "===== manifest ====="; grep -n 'android:label=\|LEANBACK_LAUNCHER\|leanback\|banner' "$M"
