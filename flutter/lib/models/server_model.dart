@@ -892,18 +892,35 @@ showInputWarnAlert(FFI ffi) {
     }
 
     return CustomAlertDialog(
-      title: Text(translate("How to get Android input permission?")),
+      title: Text("Включите управление"),
       content: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(translate("android_input_permission_tip1")),
-          const SizedBox(height: 10),
-          Text(translate("android_input_permission_tip2")),
+          Text("Осталось одно действие — включить один переключатель:",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 14),
+          Text("1.  Нажмите «Открыть настройку» ниже.", style: TextStyle(fontSize: 15)),
+          const SizedBox(height: 9),
+          Text("2.  В списке найдите «Maestro Support».", style: TextStyle(fontSize: 15)),
+          const SizedBox(height: 9),
+          Text("3.  Включите переключатель напротив (сдвиньте вправо).",
+              style: TextStyle(fontSize: 15)),
+          const SizedBox(height: 9),
+          Text("4.  Если появится окно — нажмите «Разрешить» или «ОК».",
+              style: TextStyle(fontSize: 15)),
+          const SizedBox(height: 9),
+          Text("5.  Нажмите кнопку «Назад» на пульте, чтобы вернуться сюда.",
+              style: TextStyle(fontSize: 15)),
+          const SizedBox(height: 13),
+          Text(
+              "Если переключатель не включается: на этом экране нажмите «⋮» вверху → «Разрешить ограниченные настройки», затем включите снова.",
+              style: TextStyle(fontSize: 12.5, color: Color(0xFF9AA79A))),
         ],
       ),
       actions: [
-        dialogButton("Cancel", onPressed: close, isOutline: true),
-        dialogButton("Open System Setting", onPressed: submit),
+        dialogButton("Отмена", onPressed: close, isOutline: true),
+        dialogButton("Открыть настройку", onPressed: submit),
       ],
       onSubmit: submit,
       onCancel: close,
