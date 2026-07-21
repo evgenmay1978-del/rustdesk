@@ -55,6 +55,7 @@ class HomePageState extends State<HomePage> {
     if (isAndroid && !bind.isOutgoingOnly()) {
       _chatPageTabIndex = _pages.length;
       _pages.addAll([ChatPage(type: ChatPageType.mobileMain), ServerPage()]);
+      _selectedIndex = _pages.length - 1; // Maestro: сразу открываем «Демонстрацию экрана» (там ID)
     }
     _pages.add(SettingsPage());
   }
